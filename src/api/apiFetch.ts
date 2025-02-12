@@ -21,7 +21,7 @@ export const fetchCharacterData = async ({
     return data;
   } catch (error) {
     console.error('Error fetching character data:', error);
-    return null;
+    return { error, hasError: true };
   }
 };
 

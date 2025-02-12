@@ -8,8 +8,8 @@ import CustomDropdown from './components/CustomDropdown';
 const { VITE_DEFAULT_ACCOUNT_NAME } = import.meta.env;
 
 const CharacterViewer = () => {
-  const [characterData, setCharacterData] = useState(null);
-  const [selectedCharacter, setSelectedCharacter] = useState(
+  const [characterData, setCharacterData] = useState<CharacterData>();
+  const [selectedCharacterOption, setSelectedCharacter] = useState(
     strongestCharacters[0].name
   );
 
@@ -17,14 +17,15 @@ const CharacterViewer = () => {
     const getData = async () => {
       const data = await fetchCharacterData({
         accountName: VITE_DEFAULT_ACCOUNT_NAME,
-        characterName: selectedCharacter,
+        characterName: selectedCharacterOption,
       });
       setCharacterData(data);
     };
     getData();
-  }, [selectedCharacter]);
+  }, [selectedCharacterOption]);
 
   if (!characterData) return <div>Loading character data...</div>;
+  if (characterData.hasError) return <div>{characterData.error}</div>;
 
   const character = characterData?.character;
   const items = characterData?.items;
@@ -35,7 +36,7 @@ const CharacterViewer = () => {
       {/* <PrettyJson json={{ character: selectedCharacter }} /> */}
       <div className="justify-self-center">
         <CustomDropdown
-          selectedOption={selectedCharacter}
+          selectedOption={selectedCharacterOption}
           setSelectedOption={setSelectedCharacter}
         />
         <h1 className="mt-4 mb-1 text-4xl title-item gold-text1">

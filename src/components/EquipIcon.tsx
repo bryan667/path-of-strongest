@@ -23,7 +23,7 @@ const EquipIcon: FC<TProps> = ({ equip }: any) => {
       backgroundColor = 'bg-unique-color';
       break;
     default:
-      backgroundColor = 'bg-gray-300';
+      backgroundColor = 'bg-normal-color';
       break;
   }
 

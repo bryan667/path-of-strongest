@@ -24,7 +24,7 @@ const CustomDropdown: FC<TProps> = ({ selectedOption, setSelectedOption }) => {
       >
         {strongestCharacters.map((char: { name: string; level: string }) => {
           return (
-            <option key={char.name} value={char.name}>
+            <option className="text-black" key={char.name} value={char.name}>
               {`${char.name}  lvl ${char.level}`}
             </option>
           );
