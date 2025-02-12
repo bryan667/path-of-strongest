@@ -33,8 +33,7 @@ const CharacterViewer = () => {
 
   return (
     <div className="app-main">
-      {/* <PrettyJson json={{ character: selectedCharacter }} /> */}
-      <div className="justify-self-center">
+      <div className="justify-self-center p-[20px]">
         <CustomDropdown
           selectedOption={selectedCharacterOption}
           setSelectedOption={setSelectedCharacter}
@@ -68,7 +67,7 @@ const CharacterViewer = () => {
           <p>No items found.</p>
         )}
       </div>
-      <PrettyJson json={items} />
+      {import.meta.env.MODE === 'development' && <PrettyJson json={items} />}
     </div>
   );
 };

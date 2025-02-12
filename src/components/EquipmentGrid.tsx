@@ -59,7 +59,7 @@ const EquipmentGrid: FC<TProps> = ({ items }) => {
 
   return (
     <div className="border border-gray-400 p-4">
-      <div className="grid grid-cols-8 grid-rows-6 gap-1 w-[500px] h-[400px] p-0">
+      <div className="grid grid-cols-8 grid-rows-6 gap-1 min-w-[50px] min-h-[50px] p-0">
         <div className="col-start-4 col-span-2 row-start-1 row-span-2 bg-gray-300 flex justify-center items-center rounded">
           <EquipIcon equip={equipmentSet.helmet} />
         </div>
@@ -91,7 +91,7 @@ const EquipmentGrid: FC<TProps> = ({ items }) => {
           <EquipIcon equip={equipmentSet.amulet} />
         </div>
       </div>
-      <div className="pt-1 grid grid-cols-9 grid-rows-2 gap-1 w-[500px] h-[110px]">
+      <div className="pt-1 grid grid-cols-9 grid-rows-2 gap-1 min-w-[50px] min-h-[50px]">
         <div className="col-start-3 col-span-1 row-start-1 row-span-2 bg-gray-300 flex justify-center items-center rounded">
           <EquipIcon equip={equipmentSet.flask1} />
         </div>
