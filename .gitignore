@@ -7,7 +7,6 @@ coverage
 build/Release
 node_modules
 .lock-wscript
-/public/
 dist/
 .idea
 .history
