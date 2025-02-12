@@ -1,11 +1,14 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { toLower } from 'lodash';
+import EquipPopupDetails from './EquipPopupDetails';
 
 type TProps = {
   equip: { [key: string]: any } | undefined;
 };
 
 const EquipIcon: FC<TProps> = ({ equip }: any) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const inventoryId = equip?.inventoryId;
   const rarity = equip?.rarity || 'normal';
   const icon = equip?.icon;
@@ -27,11 +30,38 @@ const EquipIcon: FC<TProps> = ({ equip }: any) => {
       break;
   }
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handleOnClick = () => {
+    setIsHovered(!isHovered);
+  };
+
   return (
     <div
-      className={`${backgroundColor} justify-items-center place-content-center w-[100%] h-[100%]`}
+      className={`${backgroundColor} justify-items-center place-content-center w-full h-full relative`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleOnClick}
     >
-      {icon && <img src={equip.icon} alt={inventoryId} />}
+      {inventoryId && (
+        <div>
+          {equip.icon && (
+            <img src={equip.icon} alt={inventoryId} className="rounded-md" />
+          )}
+
+          <EquipPopupDetails
+            isHovered={isHovered}
+            backgroundColor={backgroundColor}
+            equip={equip}
+          />
+        </div>
+      )}
     </div>
   );
 };

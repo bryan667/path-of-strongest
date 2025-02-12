@@ -71,3 +71,31 @@
   );
   border: 2px solid hsl(222, 10%, 20%);
 }
+
+.custom-divider {
+  position: relative;
+  height: 3px;
+  background-color: yellow;
+  width: 100%;
+}
+
+.custom-divider::before,
+.custom-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 10px; /* Adjust for longer/shorter points */
+  height: 10px;
+  background-color: yellow;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  transform: translateY(-50%);
+}
+
+.custom-divider::before {
+  left: -5px;
+}
+
+.custom-divider::after {
+  right: -5px;
+  transform: scaleX(-1) translateY(-50%);
+}
