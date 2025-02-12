@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'FontinRegular';
+  src: url('/fonts/Fontin-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color-scheme: light dark;
+  background-color: #121212;
+  color: #dfcf99;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-main {
+  justify-content: center;
+}
+
+.title-item {
+  font-family: 'FontinRegular', Verdana, Arial, Helvetica, sans-serif;
+}
+
+.gold-text1 {
+  color: #dfcf99;
+}
+
+.gold-text2 {
+  color: #a38d6d;
+}
+
+.bg-unique-color {
+  background-color: hsl(0, 6%, 25%);
+}
+
+.bg-rare-color {
+  background-color: hsl(87, 18%, 22%);
+}
+
+.bg-magic-color {
+  background-color: hsl(226deg 26.79% 21.96%);
+}
