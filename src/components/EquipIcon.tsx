@@ -11,7 +11,6 @@ const EquipIcon: FC<TProps> = ({ equip }: any) => {
 
   const inventoryId = equip?.inventoryId;
   const rarity = equip?.rarity || 'normal';
-  const icon = equip?.icon;
 
   let backgroundColor = 'bg-gray-300';
 
@@ -51,7 +50,7 @@ const EquipIcon: FC<TProps> = ({ equip }: any) => {
     >
       {inventoryId && (
         <div>
-          {equip.icon && (
+          {equip?.icon && (
             <img src={equip.icon} alt={inventoryId} className="rounded-md" />
           )}
 
