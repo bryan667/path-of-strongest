@@ -48,7 +48,7 @@ const EquipIcon: FC<TProps> = ({ equip }: any) => {
       const parent = parentRef.current;
       if (!parent) return;
       const rect = parent.getBoundingClientRect();
-      let isNearRightEdge;
+      let isNearRightEdge = false;
       if (window.innerWidth > 500) {
         isNearRightEdge = rect.right + 350 > window.innerWidth;
       } else {

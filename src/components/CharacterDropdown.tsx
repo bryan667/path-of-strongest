@@ -31,7 +31,6 @@ const CharacterDropdown: FC<TProps> = ({
         });
         setSelectedOption(latestCharacter?.name || sortedData[0].name);
       }
-      console.log('data', data);
     };
     getCharacterOptions();
   }, []);

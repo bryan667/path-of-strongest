@@ -35,11 +35,15 @@ const EquipPopupDetails: FC<TProps> = ({
     return <>{renderComp}</>;
   };
 
+  const styleProps: any = {};
+  styleProps[popupPosition] = '105%';
+
   return (
     <>
       {isHovered && (
         <div
-          className={`${backgroundColor} top-0 ${popupPosition}-[105%] max-w-[100%] w-fit opacity-95 absolute min-h-[100%] min-w-[350px] h-fit z-100 px-[0px] py-[10px]`}
+          style={styleProps}
+          className={`${backgroundColor} top-0 max-w-[100%] w-fit opacity-95 absolute min-h-[100%] min-w-[350px] h-fit z-100 px-[0px] py-[10px]`}
         >
           <div className="text-center">
             <div className={`pb-[10px]`}>
