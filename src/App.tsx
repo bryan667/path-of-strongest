@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PrettyJson from './helpers/PrettyJson';
+// import PrettyJson from './helpers/PrettyJson';
 import { strongestCharacters, fetchCharacterData } from './api/apiFetch';
 import EquipmentGrid from './components/EquipmentGrid';
 import CustomDropdown from './components/CustomDropdown';
