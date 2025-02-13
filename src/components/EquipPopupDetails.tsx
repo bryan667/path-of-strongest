@@ -4,6 +4,7 @@ import { FC } from 'react';
 type TProps = {
   isHovered?: boolean;
   backgroundColor?: string;
+  popupPosition?: string;
   equip: { [key: string]: any };
 };
 
@@ -11,6 +12,7 @@ const EquipPopupDetails: FC<TProps> = ({
   isHovered = false,
   backgroundColor = 'bg-normal-color',
   equip,
+  popupPosition = 'left',
 }) => {
   const renderByDisplayMode = (property: any) => {
     let renderComp = <div></div>;
@@ -37,7 +39,7 @@ const EquipPopupDetails: FC<TProps> = ({
     <>
       {isHovered && (
         <div
-          className={`${backgroundColor} top-0 opacity-95 left-[105%] absolute min-h-[100%] min-w-[350px] h-fit w-fit z-100 px-[0px] py-[10px]`}
+          className={`${backgroundColor} top-0 ${popupPosition}-[105%] max-w-[100%] w-fit opacity-95 absolute min-h-[100%] min-w-[350px] h-fit z-100 px-[0px] py-[10px]`}
         >
           <div className="text-center">
             <div className={`pb-[10px]`}>
@@ -46,7 +48,7 @@ const EquipPopupDetails: FC<TProps> = ({
             </div>
             <div className={`bg-black min-h-[150px] p-[10px] text-sm/6`}>
               {equip?.properties?.map((property: any, index: number) => {
-                return <p key={index}>{renderByDisplayMode(property)}</p>;
+                return <div key={index}>{renderByDisplayMode(property)}</div>;
               })}
 
               {equip?.requirements?.map((requirements: any, index: number) => {
@@ -66,9 +68,9 @@ const EquipPopupDetails: FC<TProps> = ({
 
               {equip?.enchantMods?.map((enMod: any, index: number) => {
                 return (
-                  <p className="text-blue-200" key={index}>
+                  <div className="text-blue-200" key={index}>
                     {enMod}
-                  </p>
+                  </div>
                 );
               })}
 
@@ -76,9 +78,9 @@ const EquipPopupDetails: FC<TProps> = ({
 
               {equip?.implicitMods?.map((iMod: any, index: number) => {
                 return (
-                  <p className="text-blue-400" key={index}>
+                  <div className="text-blue-400" key={index}>
                     {iMod}
-                  </p>
+                  </div>
                 );
               })}
 
@@ -86,9 +88,9 @@ const EquipPopupDetails: FC<TProps> = ({
 
               {equip?.utilityMods?.map((utMod: any, index: number) => {
                 return (
-                  <p className="text-blue-400" key={index}>
+                  <div className="text-blue-400" key={index}>
                     {utMod}
-                  </p>
+                  </div>
                 );
               })}
 
@@ -96,9 +98,9 @@ const EquipPopupDetails: FC<TProps> = ({
 
               {equip?.explicitMods?.map((exMod: any, index: number) => {
                 return (
-                  <p className="text-blue-400" key={index}>
+                  <div className="text-blue-400" key={index}>
                     {exMod}
-                  </p>
+                  </div>
                 );
               })}
 

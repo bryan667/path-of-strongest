@@ -48,7 +48,7 @@ const AccountView = () => {
         />
       </div>
       <div className="xs-media-flex items-center">
-        <div className="sm-w-[80px] mr-[5px] w-[100%] pb-[6px]">
+        <div className="w-[100%] mr-[5px] pb-[6px]">
           <ReuseDropdown
             id="realm"
             selectedOption={formState.realm}
