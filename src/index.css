@@ -34,12 +34,6 @@ body {
   background-repeat: no-repeat;
 }
 
-@media (max-width: 768px) {
-  :root {
-    background-size: contain;
-  }
-}
-
 .app-main {
   justify-content: center;
 }
@@ -47,11 +41,37 @@ body {
 .bg-main-opaque {
   min-height: 100vh;
   height: auto;
-  background-color: #0000009f;
+  background-color: #0b0a0ab2;
 }
 
 .bg-main-vertical {
-  background-color: #000000c3;
+  background-color: #080808d5;
+}
+
+.xs-media-flex {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  :root {
+    background-size: contain;
+  }
+
+  .bg-main-opaque {
+    background-color: #28242476;
+  }
+
+  .bg-main-vertical {
+    background-color: #070707b9;
+  }
+}
+
+@media (max-width: 450px) {
+  .xs-media-flex {
+    display: block;
+    justify-self: center;
+  }
 }
 
 .title-item {

@@ -54,7 +54,7 @@ const EquipPopupDetails: FC<TProps> = ({
 
                 return (
                   <span key={index}>
-                    <span className="text-gray-500 ">{`${requirements.name}`}</span>
+                    <span className="text-gray-500">{`${requirements.name}`}</span>
                     {!isEmpty(reqVals) && (
                       <span className="text-white">{` ${reqVals} `}</span>
                     )}
@@ -64,26 +64,42 @@ const EquipPopupDetails: FC<TProps> = ({
 
               {equip?.requirements && <div className="pb-[5px]" />}
 
-              {equip?.enchantMods?.map((enMod: any) => {
-                return <p className="text-blue-200">{enMod}</p>;
+              {equip?.enchantMods?.map((enMod: any, index: number) => {
+                return (
+                  <p className="text-blue-200" key={index}>
+                    {enMod}
+                  </p>
+                );
               })}
 
               {equip?.enchantMods && <div className="pb-[5px]" />}
 
-              {equip?.implicitMods?.map((iMod: any) => {
-                return <p className="text-blue-400">{iMod}</p>;
+              {equip?.implicitMods?.map((iMod: any, index: number) => {
+                return (
+                  <p className="text-blue-400" key={index}>
+                    {iMod}
+                  </p>
+                );
               })}
 
               {equip?.implicitMods && <div className="pb-[5px]" />}
 
-              {equip?.utilityMods?.map((utMod: any) => {
-                return <p className="text-blue-400">{utMod}</p>;
+              {equip?.utilityMods?.map((utMod: any, index: number) => {
+                return (
+                  <p className="text-blue-400" key={index}>
+                    {utMod}
+                  </p>
+                );
               })}
 
               {equip?.utilityMods && <div className="pb-[5px]" />}
 
-              {equip?.explicitMods?.map((exMod: any) => {
-                return <p className="text-blue-400">{exMod}</p>;
+              {equip?.explicitMods?.map((exMod: any, index: number) => {
+                return (
+                  <p className="text-blue-400" key={index}>
+                    {exMod}
+                  </p>
+                );
               })}
 
               {equip?.explicitMods && <div className="pb-[5px]" />}
