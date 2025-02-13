@@ -48,7 +48,7 @@ const AccountView = () => {
         />
       </div>
       <div className="xs-media-flex items-center">
-        <div className="sm-w-[80px] mr-[5px]">
+        <div className="sm-w-[80px] mr-[5px] w-[100%] pb-[6px]">
           <ReuseDropdown
             id="realm"
             selectedOption={formState.realm}
@@ -60,38 +60,42 @@ const AccountView = () => {
             ]}
           />
         </div>
-        <input
-          type="text"
-          id="accountName"
-          onChange={handleInputChange}
-          className="mr-[5px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="accountName#1234"
-          defaultValue={VITE_DEFAULT_ACCOUNT_NAME}
-          required
-        />
-        <button
-          type="button"
-          onClick={onSubmit}
-          className="border focus:outline-none hover:bg-gray-800 font-medium rounded-lg text-sm px-5 py-2.5"
-        >
-          Import
-        </button>
+        <div className="pb-[6px]">
+          <input
+            type="text"
+            id="accountName"
+            onChange={handleInputChange}
+            className="mr-[5px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="accountName#1234"
+            defaultValue={VITE_DEFAULT_ACCOUNT_NAME}
+            required
+          />
+        </div>
+        <div className="pb-[6px]">
+          <button
+            type="button"
+            onClick={onSubmit}
+            className="border w-[100%] focus:outline-none hover:bg-gray-800 font-medium rounded-lg text-sm px-5 py-2.5"
+          >
+            Import
+          </button>
+        </div>
       </div>
-      <div className="mt-[8px] text-sm">
+      <div className="text-sm">
         <ul className="list-disc pl-4">
           <li>Like in POB, only characters set to public can be viewed.</li>
           <li>Uses POE1 API, POE2 soon when API becomes available.</li>
+          <li>
+            <a
+              href="https://www.pathofexile.com/developer/docs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline break-all"
+            >
+              Docs here
+            </a>
+          </li>
         </ul>
-        <div>
-          <a
-            href="https://www.pathofexile.com/developer/docs"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline pl-4 break-all"
-          >
-            https://www.pathofexile.com/developer/docs
-          </a>
-        </div>
       </div>
       <div className="mt-[8px] justify-self-center">
         <a
