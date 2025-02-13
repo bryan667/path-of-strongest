@@ -86,11 +86,21 @@ const AccountView = () => {
           <a
             href="https://www.pathofexile.com/developer/docs"
             target="_blank"
+            rel="noopener noreferrer"
             className="hover:underline pl-4 break-all"
           >
             https://www.pathofexile.com/developer/docs
           </a>
         </div>
+      </div>
+      <div className="mt-[8px] justify-self-center">
+        <a
+          href="https://github.com/bryan667/path-of-strongest"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="githb2.png" alt="GitHub" width="60px" />
+        </a>
       </div>
     </div>
   );
