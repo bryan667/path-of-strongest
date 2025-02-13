@@ -24,50 +24,55 @@ const CharacterViewer = () => {
     getData();
   }, [selectedCharacterOption]);
 
-  if (!characterData) return <div>Loading character data...</div>;
-  if (characterData.hasError) return <div>{characterData.error}</div>;
-
   const character = characterData?.character;
   const items = characterData?.items;
-  const charLevel = character.level;
+  const charLevel = character?.level;
 
   return (
     <div className="app-main">
-      <div className="justify-self-center p-[20px]">
-        <CustomDropdown
-          selectedOption={selectedCharacterOption}
-          setSelectedOption={setSelectedCharacter}
-        />
-        <h1 className="mt-4 mb-1 text-4xl title-item gold-text1">
-          {character.name}
-        </h1>
-        {charLevel && (
-          <h2 className="gold-text2 mb-3">{`Level ${character.level} ${character.class}`}</h2>
-        )}
-        {items && items.length > 0 ? (
-          <div>
-            <EquipmentGrid items={items} />
-            {items.map((item: any) => (
-              <div className="flex items-center">
-                <img
-                  src={item.icon}
-                  alt="Profile"
-                  className="rounded-full mr-4" // Adjust size and spacing
-                />
-                <div key={item.id}>
-                  <div className="title-item gold-text1">
-                    {`${item.name} ${item.typeLine}`}
+      <div className="bg-main-opaque">
+        {!characterData && <div>Loading character data...</div>}
+        {characterData?.hasError && <div>{characterData.error}</div>}
+
+        {characterData && (
+          <div className="justify-self-center bg-main-vertical py-[30px] px-[50px]">
+            <CustomDropdown
+              selectedOption={selectedCharacterOption}
+              setSelectedOption={setSelectedCharacter}
+            />
+            <h1 className="mt-4 mb-1 text-4xl title-item gold-text1">
+              {character?.name}
+            </h1>
+            {charLevel && (
+              <h2 className="gold-text2 mb-3">{`Level ${character.level} ${character.class}`}</h2>
+            )}
+            {items && items.length > 0 ? (
+              <div>
+                <EquipmentGrid items={items} />
+                {items.map((item: any) => (
+                  <div className="flex items-center mt-5">
+                    <img
+                      src={item.icon}
+                      alt="Profile"
+                      className="rounded-full mr-4" // Adjust size and spacing
+                    />
+                    <div key={item.id}>
+                      <div className="title-item gold-text1">
+                        {`${item.name} ${item.typeLine}`}
+                      </div>
+                      <div className="gold-text2">{item.baseType}</div>
+                    </div>
                   </div>
-                  <div className="gold-text2">{item.baseType}</div>
-                </div>
+                ))}
               </div>
-            ))}
+            ) : (
+              <p>No items found.</p>
+            )}
           </div>
-        ) : (
-          <p>No items found.</p>
         )}
+
+        {/* {import.meta.env.MODE === 'development' && <PrettyJson json={items} />} */}
       </div>
-      {import.meta.env.MODE === 'development' && <PrettyJson json={items} />}
     </div>
   );
 };

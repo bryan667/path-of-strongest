@@ -11,21 +11,47 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   line-height: 1.5;
   font-weight: 400;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   color-scheme: light dark;
-  background-color: #121212;
   color: #dfcf99;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(/mirror3.jpg);
+  background-color: #000000;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  :root {
+    background-size: contain;
+  }
 }
 
 .app-main {
   justify-content: center;
+}
+
+.bg-main-opaque {
+  min-height: 100vh;
+  height: auto;
+  background-color: #0000009f;
+}
+
+.bg-main-vertical {
+  background-color: #000000c3;
 }
 
 .title-item {
