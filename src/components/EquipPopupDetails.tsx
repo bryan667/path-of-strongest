@@ -4,15 +4,17 @@ import { FC } from 'react';
 type TProps = {
   isHovered?: boolean;
   backgroundColor?: string;
-  popupPosition?: string;
   equip: { [key: string]: any };
+  refs: any;
+  floatingStyles: any;
 };
 
 const EquipPopupDetails: FC<TProps> = ({
   isHovered = false,
   backgroundColor = 'bg-normal-color',
   equip,
-  popupPosition = 'left',
+  refs,
+  floatingStyles,
 }) => {
   const renderByDisplayMode = (property: any) => {
     let renderComp = <div></div>;
@@ -35,15 +37,13 @@ const EquipPopupDetails: FC<TProps> = ({
     return <>{renderComp}</>;
   };
 
-  const styleProps: any = {};
-  styleProps[popupPosition] = '105%';
-
   return (
     <>
       {isHovered && (
         <div
-          style={styleProps}
-          className={`${backgroundColor} top-0 max-w-[100%] w-fit opacity-95 absolute min-h-[100%] min-w-[350px] h-fit z-100 px-[0px] py-[10px]`}
+          ref={refs.setFloating}
+          style={floatingStyles}
+          className={`${backgroundColor} max-w-[100%] w-fit opacity-95 min-h-[100%] min-w-[350px] z-100 px-[0px] py-[10px]`}
         >
           <div className="text-center">
             <div className={`pb-[10px]`}>

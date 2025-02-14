@@ -1,6 +1,7 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useState } from 'react';
 import { toLower } from 'lodash';
 import EquipPopupDetails from './EquipPopupDetails';
+import { useFloating, autoPlacement, shift, size } from '@floating-ui/react';
 
 type TProps = {
   equip: { [key: string]: any } | undefined;
@@ -8,11 +9,13 @@ type TProps = {
 
 const EquipIcon: FC<TProps> = ({ equip }: any) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [position, setPosition] = useState('left');
-
-  const parentRef = useRef<HTMLDivElement | null>(null);
   const inventoryId = equip?.inventoryId;
   const rarity = equip?.rarity || 'normal';
+
+  const { refs, floatingStyles } = useFloating({
+    placement: 'right', // Default placement
+    middleware: [autoPlacement(), shift()],
+  });
 
   let backgroundColor = 'bg-gray-300';
 
@@ -43,28 +46,9 @@ const EquipIcon: FC<TProps> = ({ equip }: any) => {
     setIsHovered(!isHovered);
   };
 
-  useEffect(() => {
-    const handlePosition = () => {
-      const parent = parentRef.current;
-      if (!parent) return;
-      const rect = parent.getBoundingClientRect();
-      let isNearRightEdge = false;
-      if (window.innerWidth > 500) {
-        isNearRightEdge = rect.right + 350 > window.innerWidth;
-      } else {
-        isNearRightEdge = rect.right + 200 > window.innerWidth;
-      }
-
-      setPosition(isNearRightEdge ? 'right' : 'left');
-    };
-    handlePosition();
-    window.addEventListener('resize', handlePosition);
-    return () => window.removeEventListener('resize', handlePosition);
-  }, []);
-
   return (
     <div
-      ref={parentRef}
+      ref={refs.setReference}
       className={`${backgroundColor} justify-items-center place-content-center w-full h-full relative`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -80,7 +64,8 @@ const EquipIcon: FC<TProps> = ({ equip }: any) => {
             isHovered={isHovered}
             backgroundColor={backgroundColor}
             equip={equip}
-            popupPosition={position}
+            floatingStyles={floatingStyles}
+            refs={refs}
           />
         </>
       )}
