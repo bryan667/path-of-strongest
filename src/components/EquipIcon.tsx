@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { toLower } from 'lodash';
 import EquipPopupDetails from './EquipPopupDetails';
-import { useFloating, autoPlacement, shift, size } from '@floating-ui/react';
+import { useFloating, autoPlacement, shift } from '@floating-ui/react';
 
 type TProps = {
   equip: { [key: string]: any } | undefined;
