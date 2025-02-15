@@ -83,8 +83,8 @@ const AccountView = () => {
       </div>
       <div className="text-sm">
         <ul className="list-disc pl-4">
-          <li>Like in POB, only characters set to public can be viewed.</li>
-          <li>Uses POE1 API, POE2 soon when API becomes available.</li>
+          <li>Only public characters are viewable, like in PoB.</li>
+          <li>Uses PoE1 API; PoE2 support coming when available.</li>
           <li>
             <a
               href="https://www.pathofexile.com/developer/docs"
